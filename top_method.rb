@@ -21,12 +21,16 @@ a = TestClass.new
 a.test2        # 而每个对象所属的类都是Object的后代，因此每个对象都可以调用顶层方法，只是不能显示调用。  
 
 
-#然而   setter
+#然而 setter 可以调用
 def a= (value)
     a = value
     puts a
 end    
 
-self.a= 10       #是 public 方法
+self.a= 10       
+
+
+puts Object.private_methods.grep /^[a|t]/       # 找到 test a=  说明二者是 Object 的私有实例方法
+puts self.private_methods.grep /^[a|t]/ 
 
 
